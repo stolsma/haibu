@@ -15,7 +15,6 @@ var assert = require('assert'),
 
 var app = {
   "name": "test",
-  "user": "marak",
   "repository": {
     "type": "create",
     "url": "https://github.com/Marak/hellonode.git",
@@ -27,7 +26,6 @@ var app = {
 
 var app2 = {
   "name": "test2",
-  "user": "marak",
   "repository": {
     "type": "create",
     "url": "https://github.com/Marak/hellonode.git",
@@ -114,10 +112,9 @@ vows.describe('haibu/repositories/core').addBatch(helpers.requireInit()).addBatc
       assert.isFunction(repo.stat);
       assert.isFunction(repo.mkdir);
       assert.isFunction(repo.bootstrap);
-      assert.equal(repo.userDir, path.join('/this/is/a/path', app2.user));
-      assert.equal(repo.appDir, path.join('/this/is/a/path', app2.user, app2.name));
+      assert.equal(repo.appDir, path.join('/this/is/a/path', app2.name));
       repo._setHome('home1');
-      assert.equal(repo.homeDir, path.join('/this/is/a/path', app2.user, app2.name, 'home1'));
+      assert.equal(repo.homeDir, path.join('/this/is/a/path', app2.name, 'home1'));
     },
     "executing the mkdir() method": {
       topic: function (repo, repositories) {
@@ -130,7 +127,7 @@ vows.describe('haibu/repositories/core').addBatch(helpers.requireInit()).addBatc
       "should create the apps directory": function (err, ready) {
         assert.isTrue(ready);
         try {
-          assert.isNotNull(fs.statSync(path.join(haibu.config.get('directories:apps'), app2.user, app2.name)));
+          assert.isNotNull(fs.statSync(path.join(haibu.config.get('directories:apps'), app2.name)));
         } 
         catch (ex) {
           // If this operation fails, fail the test
@@ -151,7 +148,7 @@ vows.describe('haibu/repositories/core').addBatch(helpers.requireInit()).addBatc
         "should install the 'color' package at the correct location": function (err, packages) {
           assert.isArray(packages);
           try {
-            assert.isNotNull(fs.statSync(path.join(haibu.config.get('directories:apps'), app2.user, app2.name, 'home1', 'node_modules', 'color')));
+            assert.isNotNull(fs.statSync(path.join(haibu.config.get('directories:apps'), app2.name, 'home1', 'node_modules', 'color')));
           } 
           catch (ex) {
             // If this operation fails, fail the test
@@ -167,7 +164,7 @@ vows.describe('haibu/repositories/core').addBatch(helpers.requireInit()).addBatc
           "should install the 'color' package at the correct location": function (err, packages) {
             assert.isArray(packages);
             try {
-              assert.isNotNull(fs.statSync(path.join(haibu.config.get('directories:apps'), app2.user, app2.name, 'home2', 'node_modules', 'color')));
+              assert.isNotNull(fs.statSync(path.join(haibu.config.get('directories:apps'), app2.name, 'home2', 'node_modules', 'color')));
             } 
             catch (ex) {
               // If this operation fails, fail the test

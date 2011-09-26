@@ -20,11 +20,6 @@ var assert = require('assert'),
 var ipAddress = '127.0.0.1',
     app = data.apps[0];
 
-//
-// Add a user property to the app
-//
-app.user = 'marak';
-
 vows.describe('haibu/drone/drone').addBatch(helpers.requireHook()).addBatch({
   "An instance of haibu.drone.Drone": {
     "when passed a valid app json": {
@@ -170,7 +165,6 @@ vows.describe('haibu/drone/drone').addBatch(helpers.requireHook()).addBatch({
              maxRestart: 3
            });
 
-          delayFail.user = 'charlie';
           delayFail.repository.directory = sourceDir;
           drone.start(delayFail, this.callback);
         },
@@ -208,7 +202,7 @@ vows.describe('haibu/drone/drone').addBatch(helpers.requireHook()).addBatch({
               return that.callback(err);
             }
 
-            var appDir = path.join(haibu.config.get('directories:apps'), clean.user, clean.name);
+            var appDir = path.join(haibu.config.get('directories:apps'), clean.name);
             fs.readdir(appDir, function (err, files) {
               if (err) {
                 return that.callback(err);

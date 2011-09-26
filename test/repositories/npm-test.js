@@ -13,7 +13,6 @@ var assert = require('assert'),
     helpers = require('./../helpers');
 
 var app = {
-      "user": "marak",
       "name": "test",
       "repository": {
         "type": "npm",

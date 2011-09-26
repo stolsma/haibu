@@ -21,8 +21,6 @@ var ipAddress = '127.0.0.1',
     app = data.apps[0],
     server;
 
-app.user = 'marak';
-
 vows.describe('haibu/drone/api').addBatch(
   helpers.requireStart(port, function (_server) {
     server = _server;
@@ -223,7 +221,7 @@ vows.describe('haibu/drone/api').addBatch(
       },
       "should remove the files from the app dir": function (err, response, body) {
         try {
-          fs.readdir(path.join(haibu.config.directories.apps, app.user, app.name));
+          fs.readdir(path.join(haibu.config.directories.apps, app.name));
           assert.isTrue(false);
         }
         catch (ex) {
@@ -300,7 +298,6 @@ vows.describe('haibu/drone/api').addBatch(
               npmApp = JSON.parse(pkgJson),
               options;
 
-          npmApp.user = 'charlie';
           npmApp.repository.directory = sourceDir;
           
           options = {

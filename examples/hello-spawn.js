@@ -9,7 +9,6 @@ var client = new haibu.drone.Client({
 
 // A basic package.json for a node.js application on Haibu
 var app = {
-   "user": "marak",
    "name": "test",
    "domain": "devjitsu.com",
    "repository": {

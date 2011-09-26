@@ -17,7 +17,6 @@ var config = helpers.loadConfig(false) || {};
     
 var httpApp = {
   "name": "test",
-  "user": "marak", 
   "repository": {
     "type": "tar",
     "protocol": "http",
@@ -30,7 +29,6 @@ var httpApp = {
 
 var cloudfilesApp = {
   "name": "test",
-  "user": "charlie",
   "repository": {
     "type": "tar",
     "protocol": "cloudfiles",

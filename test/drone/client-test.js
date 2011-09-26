@@ -21,8 +21,6 @@ var ipAddress = '127.0.0.1',
     app = data.apps[0],
     server, client;
 
-app.user = 'marak';
-
 vows.describe('haibu/drone/api/client').addBatch(
   helpers.requireStart(port, function (_server) {
     client = new haibu.drone.Client({
@@ -84,7 +82,7 @@ vows.describe('haibu/drone/api/client').addBatch(
       "should remove the files from the app dir": function (err) {
         assert.isNull(err);
         try {
-          fs.readdirSync(path.join(haibu.config.get('directories:apps'), app.user, app.name));
+          fs.readdirSync(path.join(haibu.config.get('directories:apps'), app.name));
           assert.isTrue(false);
         }
         catch (ex) {

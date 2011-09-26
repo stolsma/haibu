@@ -97,7 +97,6 @@ var client = new haibu.drone.Client({
 
 // A basic package.json for a node.js application on haibu
 var app = {
-   "user": "marak",
    "name": "test",
    "domain": "devjitsu.com",
    "repository": {
@@ -141,7 +140,6 @@ Lets look at the sample data we sent to the `haibu-server` in the above example
 
 ```javascript
 {
-   "user": "marak",
    "name": "test",
    "domain": "devjitsu.com",
    "repository": {
@@ -166,7 +164,6 @@ If you need to integrate non-node.js systems with haibu, you can use haibu's RES
     ...
     {
         "start": {
-            "user": "marak",
             "name": "test",
             "domain": "devjitsu.com",
             "repository": {
@@ -195,7 +192,7 @@ If you need to integrate non-node.js systems with haibu, you can use haibu's RES
             pid: 7903,
             foreverPid: 7195,
             logFile: '/Users/Charlie/.forever/gbE3.log',
-            options: [ '/Users/Charlie/Nodejitsu/haibu/local/marak/test/hellonode/server.js', '127.0.0.1', 8001 ],
+            options: [ '/Users/Charlie/Nodejitsu/haibu/local/test/hellonode/server.js', '127.0.0.1', 8001 ],
             file: '/Users/Charlie/Nodejitsu/haibu/bin/carapace',
             pidFile: '/Users/Charlie/.forever/pids/gbE3.pid',
             port: 8001,
@@ -234,16 +231,6 @@ The name attribute is required and will represent the name of the application be
 ```json
 {
   "name": "app-name"
-}
-```
-
-###User
-
-The user attribute is required and will represent the user who started up a drone.
-
-```json
-{
-  "user": "myusername"
 }
 ```
 

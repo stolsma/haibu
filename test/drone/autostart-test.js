@@ -15,11 +15,6 @@ var assert = require('assert'),
 
 var app = data.apps[0];
 
-//
-// Add a user property to the app
-//
-app.user = 'marak';
-
 vows.describe('haibu/drone/autostart').addBatch(helpers.requireInit()).addBatch({
   "When using haibu": {
     "a call to haibu.drone.start()": {

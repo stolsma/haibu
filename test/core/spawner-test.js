@@ -18,7 +18,6 @@ var spawner = new haibu.Spawner({ maxRestart: 1 });
 
 var app = {
   "name": "test",
-  "user": "marak",
   "repository": {
     "type": "git",
     "url": "http://github.com/Marak/hellonode.git",
@@ -34,7 +33,6 @@ var app = {
 
 var appWithSubmodules = {
   "name": "exceptiony",
-  "user": "charlie",
   "repository": {
     "type": "git",
     "url": "http://github.com/indexzero/exceptiony.git"
@@ -81,7 +79,6 @@ vows.describe('haibu/core/spawner').addBatch(helpers.requireStart(9010)).addBatc
               pkgJson = fs.readFileSync(path.join(sourceDir, 'package.json')),
               npmApp = JSON.parse(pkgJson);
 
-          npmApp.user = 'charlie';
           npmApp.repository.directory = sourceDir;
           repo = haibu.repository.create(npmApp);
           spawner.trySpawn(repo, this.callback);
@@ -128,7 +125,6 @@ vows.describe('haibu/core/spawner').addBatch(helpers.requireStart(9010)).addBatc
               pkgJson = fs.readFileSync(path.join(sourceDir, 'package.json')),
               npmApp = JSON.parse(pkgJson);
 
-          npmApp.user = 'charlie';
           npmApp.repository.directory = sourceDir;
           this.repo = haibu.repository.create(npmApp);
           spawner.trySpawn(this.repo, this.callback);
@@ -157,7 +153,6 @@ vows.describe('haibu/core/spawner').addBatch(helpers.requireStart(9010)).addBatc
               pkg = this.pkg = fs.readFileSync(path.join(sourceDir, 'package.json')),
               envApp = JSON.parse(pkg);
 
-          envApp.user = 'charlie';
           envApp.repository.directory = sourceDir;
           this.repo = haibu.repository.create(envApp);
           

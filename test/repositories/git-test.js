@@ -14,7 +14,6 @@ var assert = require('assert'),
 
 var app = {
       "name": "test",
-      "user": "marak",
       "repository": {
         "type": "git",
         "url": "https://github.com/Marak/hellonode.git",

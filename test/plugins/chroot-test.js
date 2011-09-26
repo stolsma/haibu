@@ -17,7 +17,6 @@ var assert = require('assert'),
 
 var repo, npmApp, app = {
   "name": "test",
-  "user": "marak",
   "repository": {
     "type": "git",
     "url": "https://github.com/Marak/hellonode.git",
@@ -89,7 +88,6 @@ vows.describe('haibu/plugins/chroot').addBatch(
               pkgJson = fs.readFileSync(path.join(sourceDir, 'package.json'));
               
           npmApp = JSON.parse(pkgJson);
-          npmApp.user = 'charlie';
           npmApp.repository.directory = sourceDir;
           repo = haibu.repository.create(npmApp);
           spawner.trySpawn(repo, this.callback);

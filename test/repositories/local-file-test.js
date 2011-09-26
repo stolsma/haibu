@@ -15,7 +15,6 @@ var assert = require('assert'),
 
 var app = {
        "name": "test",
-       "user": "marak",
        "repository": {
          "type": "local",
          "directory": path.join(__dirname, '..', 'fixtures', 'repositories', 'local-file'),
