@@ -60,7 +60,7 @@ vows.describe('haibu/core/spawner').addBatch(helpers.requireStart(9010)).addBatc
           
           // Ensure that the submodule's (vendor/proto) has files
           try {
-            var submodulePath = path.join(config.get('directories:apps'), 'charlie', 'exceptiony', 'exceptiony', 'vendor', 'proto');
+            var submodulePath = path.join(config.get('directories:apps'), 'exceptiony', 'exceptiony', 'vendor', 'proto');
             assert.isTrue(fs.readdirSync(submodulePath).length > 0);
           }
           catch (ex) {
